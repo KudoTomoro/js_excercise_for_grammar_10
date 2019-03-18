@@ -15,6 +15,31 @@
  */
 
 
+const numbers = [10, 500, 234, 965, 221];
+console.log(numbers);
+const returnedNumbers = removeMaxNumberFromArray(numbers);
+console.log(returnedNumbers);
+
+// -----------------------------------------------------------
+
+function removeMaxNumberFromArray(_numbers){
+
+  let max = 0;
+  let maxIndex;
+
+  numbers.forEach((number, index) => {
+    if(max < number){
+      max = number;
+      maxIndex = index;
+    }
+  });
+
+  numbers.splice(maxIndex,1);
+  return numbers;
+
+}
+
+
 
 /**
  * 課題2: 数値が格納されている配列を引数で受け取り、小さい順に並べ替える
@@ -34,3 +59,19 @@
  *     - 「Array.prototype.sort()」を使う
  *       - https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
  */
+
+ const beforeSortNumbers = [1000, 10, 500, 234, 965, 221, 102];
+ const copyBeforeSortNumbers = beforeSortNumbers.slice();
+ const afterSortNumbers = sortNumbers(copyBeforeSortNumbers);
+
+ function sortNumbers(num){
+   num.sort(function(a,b){
+        if( a < b ) return -1;
+        if( a > b ) return 1;
+        return 0;
+      });
+      return num;
+ }
+
+ console.log(beforeSortNumbers);
+ console.log(afterSortNumbers);
